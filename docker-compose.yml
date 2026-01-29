@@ -1,0 +1,44 @@
+services:
+  mongodb:
+    image: mongo:8.0
+    container_name: trip-planner-mongodb
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_DATABASE: trip-planner
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - trip-planner-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: trip-planner-api
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MONGODB_URI: mongodb://mongodb:27017/trip-planner
+      EXTERNAL_API_URL: ${EXTERNAL_API_URL}
+      EXTERNAL_API_KEY: ${EXTERNAL_API_KEY}
+      CACHE_TTL: ${CACHE_TTL}
+      THROTTLE_TTL: ${THROTTLE_TTL}
+      THROTTLE_LIMIT: ${THROTTLE_LIMIT}
+    depends_on:
+      - mongodb
+    networks:
+      - trip-planner-network
+    command: npm run start:prod
+
+volumes:
+  mongodb_data:
+    driver: local
+
+networks:
+  trip-planner-network:
+    driver: bridge
