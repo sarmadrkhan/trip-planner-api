@@ -5,11 +5,13 @@ A robust REST API for searching and managing travel trips, built with NestJS, Ty
 ## Features
 
 ### Features Implemented
+
 - **Trip Search** - Search trips by origin and destination with sorting
   - Sort by fastest (duration)
   - Sort by cheapest (cost)
-  - Support for 50 places 
+  - Support for 50 places
 - **Cache** - Results caching for performance
+- **Railway (Production)** - The app is deployed on Railway with MongoDB
 - **Docker** - Containerization with Docker Compose for easy deployment
 - **Trip Management** - Save, list, and delete trips
 - **Pagination** - Offset pagination for saved trips with metadata
@@ -27,6 +29,7 @@ A robust REST API for searching and managing travel trips, built with NestJS, Ty
 - **Documentation**: OpenAPI/Swagger + Scalar
 - **Testing**: Jest
 - **Containerization**: Docker & Docker Compose
+- **Deployment**: Railway
 
 ## Prerequisites
 
@@ -102,7 +105,18 @@ npm run test:e2e
 npm run test:rate-limit
 ```
 
-## Docker Setup
+## Deployment
+
+### Railway (Production - Live)
+
+The application is deployed on Railway with MongoDB:
+
+- Automatic deployments from GitHub
+- Managed MongoDB instance
+- Environment variables configured
+- Visit: https://srk-trip-planner-api.up.railway.app/
+
+### Docker Setup
 
 ```bash
 # Build and start all services
@@ -182,3 +196,9 @@ The API implements rate limiting to prevent abuse:
 - **Assessment**: Safe to ignore. Lodash is only used during development/build by NestJS internals, not exposed to runtime or user input
 - **Why not fixed**: Running `npm audit fix --force` would downgrade `@nestjs/config` from 4.x to 1.x (major breaking change)
 - **Production recommendation**: Monitor for NestJS updates that resolve this dependency issue
+
+## 🌐 Live Demo
+
+**Live API:** https://srk-trip-planner-api.up.railway.app
+
+Try the interactive API documentation and test all endpoints directly in your browser.
