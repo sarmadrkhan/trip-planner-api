@@ -4,15 +4,11 @@ A robust REST API for searching and managing travel trips, built with NestJS, Ty
 
 ## Features
 
-### Required Features
-
+### Features Implemented
 - **Trip Search** - Search trips by origin and destination with sorting
   - Sort by fastest (duration)
   - Sort by cheapest (cost)
   - Support for 50 places 
-
-
-### Bonus Features Implemented
 - **Cache** - Results caching for performance
 - **Docker** - Containerization with Docker Compose for easy deployment
 - **Trip Management** - Save, list, and delete trips
@@ -57,7 +53,7 @@ npm install
 # Copy the example environment file
 cp .env.example .env
 
-# Edit .env and add external API url and key (Please use the values Daniela provided me in the email)
+# Edit .env and add external API url and key
 EXTERNAL_API_URL=external_api_url
 EXTERNAL_API_KEY=external_api_key
 ```
@@ -170,10 +166,6 @@ The API implements rate limiting to prevent abuse:
 4. **Structured Logging**: Implement centralized logging and audit trails
 5. **Authentication**: Add JWT-based authentication for user-specific saved trips
 6. **Database Indexing**: Add compound indexes on frequently queried fields
-
-### Why These Technologies?
-
-I used these technologies because they were mentioned in the job description that this is the tech stack used at BizAway. To showcase how comfortable I am with these, I decided to use them. Moreover, for the last year and a half I have been using Nest so i could quickly setup the project and reimplement what i had built recently by making some adjustments
 
 ## Code Quality
 
