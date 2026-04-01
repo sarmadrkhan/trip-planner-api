@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Redirect } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { AppService } from './app.service';
 
@@ -6,6 +6,12 @@ import { AppService } from './app.service';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
+
+  @Get()
+  @Redirect('/api/docs/scalar', 302)
+  root() {
+    // Redirects to Scalar docs
+  }
 
   @Get('health')
   @ApiOperation({ summary: 'Health check endpoint' })
