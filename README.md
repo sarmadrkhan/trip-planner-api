@@ -2,6 +2,12 @@
 
 A robust REST API for searching and managing travel trips, built with NestJS, TypeScript, and MongoDB. This project includes code with comprehensive testing and proper error handling while following best practices.
 
+## 🌐 Live Demo
+
+**Live API:** https://srk-trip-planner-api.up.railway.app
+
+Try the interactive API documentation and test all endpoints directly in your browser.
+
 ## Features
 
 ### Features Implemented
@@ -196,9 +202,3 @@ The API implements rate limiting to prevent abuse:
 - **Assessment**: Safe to ignore. Lodash is only used during development/build by NestJS internals, not exposed to runtime or user input
 - **Why not fixed**: Running `npm audit fix --force` would downgrade `@nestjs/config` from 4.x to 1.x (major breaking change)
 - **Production recommendation**: Monitor for NestJS updates that resolve this dependency issue
-
-## 🌐 Live Demo
-
-**Live API:** https://srk-trip-planner-api.up.railway.app
-
-Try the interactive API documentation and test all endpoints directly in your browser.
